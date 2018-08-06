@@ -1,0 +1,4 @@
+<%= form_for @edit_comment, url: formfor_cupdate_path(post_id: @g.id,comment_id: @edit_comment) do |o| %>
+    <%=o.text_area :content%><br>
+    <%=o.submit %>
+<%end %>

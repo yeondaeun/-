@@ -1,0 +1,36 @@
+<h1>Formfor#index</h1>
+<p>Find me in app/views/formfor/index.html.erb</p>
+
+<br><br>
+게시글 목록 페이지<br>
+
+
+
+<!-----------------바꾸기----------------------------->
+
+
+<%@posts.each do |x|%>
+  <br>
+  <br>
+  제목 : <%=x.title%><br>
+  내용 : <%=x.content%><br>  
+  
+  <%= link_to '삭제', formfor_destroy_path(post_id: x.id), method: "delete" %><br>
+  <%= link_to '수정', formfor_edit_path(post_id: x.id) %><br>
+  
+   <% x.comment2s.each do |k| %>
+   
+    댓글 내용: <%=k.content %><br>
+    <%= link_to '댓글삭제', formfor_cdestroy_path(post_id: x.id,comment_id: k.id) %><br>
+    <%= link_to '댓글수정', formfor_cedit_path(post_id: x.id,comment_id: k.id)%><br>
+    
+    <%end%>
+    
+    <%= form_tag ("/formfor/#{x.id}/comment2s/create") do %>
+        <%= text_field_tag "content", nil %>
+        <input type="submit" value="댓글쓰기"><br>
+    <%end%>
+  
+<%end%>
+
+ <%= link_to '새로운 포스트', formfor_new_path %>

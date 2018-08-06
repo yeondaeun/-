@@ -1,0 +1,2 @@
+module BasichtmlHelper
+end

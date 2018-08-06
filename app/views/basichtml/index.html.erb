@@ -1,0 +1,34 @@
+<h1>Basichtml#index</h1>
+<p>Find me in app/views/basichtml/index.html.erb</p><br>
+---------------------------------------------------
+
+
+<br><br>
+게시글 목록 페이지<br>
+
+<%@posts.each do |x|%>
+  <br>
+  <br>
+  제목 : <%=x.title%><br>
+  내용 : <%=x.content%><br>  
+  <a href='/basichtml/destroy/<%=x.id%>'>삭제</a>
+<a href='/basichtml/edit/<%=x.id%>'>수정</a>
+
+  <% x.comments.each do |k| %>
+
+       댓글 내용: <%=k.content %><br>
+       <a href="/basichtml/<%=x.id%>/comments/<%=k.id%>/destroy">댓글 삭제</a><br>
+       <a href="/basichtml/<%=x.id%>/comments/<%=k.id%>/edit">댓글 수정</a>
+    <%end%>
+    
+    
+    
+    
+    <form action='/basichtml/<%=x.id%>/comments/create' method="post">
+        <textarea name='content'></textarea>
+        <input type="submit" value="댓글쓰기"><br>
+    </form>
+  -----------------------------------------
+<%end%>
+
+<a href="/basichtml/new">new post</a>

@@ -1,0 +1,33 @@
+<h1>Formfor#new</h1>
+<p>Find me in app/views/formfor/new.html.erb</p>
+
+
+
+
+<%=form_for @posts, url: formfor_create_path do |k| %>
+  제목 : <%=k.text_field :title%><br>
+  내용 : <%=k.text_area :content%><br>  
+  
+  <%= k.submit %>
+<%end%>
+
+<%=form_for @posts, url: {action: "create"} do |k| %>
+  제목 : <%=k.text_field :title%><br>
+  내용 : <%=k.text_area :content%><br>  
+  
+  <%= k.submit %>
+<%end%>
+
+<%=form_for @posts, url: "/formfor/create" do |k| %>
+  제목 : <%=k.text_field :title%><br>
+  내용 : <%=k.text_area :content%><br>  
+  
+  <%= k.submit %>
+<%end%>
+
+ <!-- 
+ form_for 메소드로부터 폼 빌더 객체(여기에서는 f)가 생성됩니다.
+ 폼에서 input 태그를 생성하는 메소드는 폼 빌더 객체 f를 사용해 호출합니다.
+ 
+ -->
+ 

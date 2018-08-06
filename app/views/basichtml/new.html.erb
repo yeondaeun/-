@@ -1,0 +1,7 @@
+새 글 쓰는 페이지<br>
+<form action = '/basichtml/create' method ='post'>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>  
+    제목:<input type = 'text' name = 'title'><br><br>
+    내용:<textarea name = 'content'></textarea><br><br>    
+<input type='submit' value='제출'>
+</form>

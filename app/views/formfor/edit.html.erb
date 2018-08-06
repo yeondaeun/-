@@ -1,0 +1,33 @@
+<h1>Formfor#edit</h1>
+<p>Find me in app/views/formfor/edit.html.erb</p>
+
+
+
+
+<%= form_for @post, url: formfor_update_path(post_id: @post.id) do |f| %>
+   제목 : <%=f.text_field :title%><br>
+   내용 : <%=f.text_area :content%><br>  
+  
+  <%= f.submit %>
+
+<%end %>
+
+
+<%= form_for @post, url: "/formfor/update/#{@post.id}" do |f| %>
+   제목 : <%=f.text_field :title%><br>
+   내용 : <%=f.text_area :content%><br>  
+  
+  <%= f.submit %>
+
+<%end %>
+
+
+<%= form_for @post, url: {action: "update", post_id: @post.id} do |f| %>
+   제목 : <%=f.text_field :title%><br>
+   내용 : <%=f.text_area :content%><br>  
+  
+  <%= f.submit %>
+
+<%end %>
+
+
